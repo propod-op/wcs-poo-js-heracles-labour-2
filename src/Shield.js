@@ -1,7 +1,7 @@
 class Shield{
-    constructor(name,protection){
+    constructor(name,protection,maniability, icon){
         this.protection=10;
-        this.name="Bouclier du tonnerre";
+        this.name="Shield Of Thunder";
     }
 
 }

@@ -1,17 +1,19 @@
 const MAX_LIFE = 100;
 const weapon = require("./Weapon.js");
 const shield = require("./Shield.js");
-
+const artifact = require("./Artifacts.js");
 
 class Fighter {
-    constructor(name, strength, dexterity) {
+    constructor(name, strength, dexterity,weapon,shield,artifact,icon) {
         this.name = name;
         this.strength = strength;
         this.dexterity = dexterity;
         this.life = MAX_LIFE;
         this.damage= 0;
-        this.weapon = new weapon("Sword",10);
-        this.shield = new shield("Tonnerre",10);
+        this.weapon = weapon;
+        this.shield = shield;
+        this.artifact = artifact;
+        this.icon=icon;
     }
 
 
@@ -20,16 +22,21 @@ class Fighter {
         // Calcul defense du defenseur OK
         const defensePoints = this.getDefense(defender);
         console.log("defensePoints : " + defensePoints);
+        
 
         // Calcul attack moi OK
-        const attackPoints = this.getRandomInt(this.getDamage());
+        this.damage =this.getDamage();
+        console.log("Damage : " + this.damage);
+
+        //Calcul un dommage (attackPoints) aleatoire de 1 à this.damage
+        const attackPoints = this.getRandomInt(this.damage);
         console.log("attackPoints : " + attackPoints);
 
         // Calcul du damage final
         const damagePoints = Math.max(defensePoints - attackPoints , 0);
         console.log("damagePoints : " + damagePoints);
 
-        defender.life = Math.max(defender.life - damagePoints, 0);
+        defender.life = Math.max(defender.life - attackPoints, 0);
         console.log("defender.life : " + defender.life);
     }
 
