@@ -1,7 +1,7 @@
 const MAX_LIFE = 100;
 const weapon = require("./Weapon.js");
 const shield = require("./Shield.js");
-const artifact = require("./Artifacts.js");
+const artifact = require("./Artifact.js");
 
 class Fighter {
     constructor(name, strength, dexterity,weapon,shield,artifact,icon) {
@@ -9,11 +9,11 @@ class Fighter {
         this.strength = strength;
         this.dexterity = dexterity;
         this.life = MAX_LIFE;
-        this.damage= 0;
+        this.damage = 0;
         this.weapon = weapon;
         this.shield = shield;
         this.artifact = artifact;
-        this.icon=icon;
+        this.icon = icon;
     }
 
 
@@ -22,7 +22,7 @@ class Fighter {
         // Calcul defense du defenseur OK
         const defensePoints = this.getDefense(defender);
         console.log("defensePoints : " + defensePoints);
-        
+        console.log("shield : " + this.shield.name);
 
         // Calcul attack moi OK
         this.damage =this.getDamage();
@@ -54,6 +54,11 @@ class Fighter {
     // calculer la puissance du coup porté sword+strength
     getDamage(){
         return this.strength + this.weapon.damage;
+    }
+
+        // calculer la puissance du coup porté sword+strength
+    getWeaponInfos(){
+        return this.weapon.name;
     }
 
     getDefense(defender){

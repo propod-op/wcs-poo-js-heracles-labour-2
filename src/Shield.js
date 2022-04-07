@@ -1,7 +1,9 @@
 class Shield{
     constructor(name,protection,maniability, icon){
-        this.protection=10;
-        this.name="Shield Of Thunder";
+        this.name = name;
+        this.protection = protection;
+        this.maniability = maniability;
+        this.icon = icon;
     }
 
 }

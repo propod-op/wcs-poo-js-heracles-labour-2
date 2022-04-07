@@ -1,4 +1,4 @@
-class Weapon{
+class Artifact{
     constructor(name,damage,maniability,icon){
         this.name = name;
         this.damage = damage;
@@ -7,4 +7,4 @@ class Weapon{
     }
 }
 
-module.exports = Weapon;
+module.exports = Artifact;
